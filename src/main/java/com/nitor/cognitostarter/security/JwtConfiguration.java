@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 @ConfigurationProperties(
-        prefix = "com.bluestar.csr.jwt.aws"
+        prefix = "com.nitor.cognitostarter.jwt.aws"
 )
 public class JwtConfiguration {
     private String userPoolId;
