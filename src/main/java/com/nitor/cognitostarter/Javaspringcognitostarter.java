@@ -44,6 +44,7 @@ import java.util.List;
 
 import static com.nimbusds.jose.JWSAlgorithm.RS256;
 @SpringBootApplication
+@EnableSwagger2
 public class Javaspringcognitostarter {
 	@Autowired
 	private JwtConfiguration jwtConfiguration;
@@ -80,4 +81,34 @@ public class Javaspringcognitostarter {
 	        return Arrays.asList(new SecurityReference("JWT", authorizationScopes));
 	    }
 
+
+	    @Bean
+	    public Docket csrAPI() {
+	        return new Docket(DocumentationType.SWAGGER_2)
+	                .groupName("CognitoStarter-API")
+	                .apiInfo(apiInfo())
+	                .securityContexts(Arrays.asList(securityContext()))
+	                .securitySchemes(Arrays.asList(apiKey()))
+	                .select()
+	                .apis(RequestHandlerSelectors.basePackage("com.nitor.cognitostarter"))
+	                .paths(PathSelectors.any())
+	                .build();
+	    }
+	    
+	    private ApiInfo apiInfo() {
+	        return new ApiInfoBuilder()
+	                .title("Spring Boot-Starter")
+	                .description("API for doing AWS cognito authentication")
+	                .contact("Nitor Infotech")
+	                .license("Apache License Version 2.0")
+	                .licenseUrl("https://github.com/nitor-infotech-oss/java-spring-cognito-starter.git")
+	                .version("1.0")
+	                .build();
+	    }
+	   
+	    public void addCorsMappings(CorsRegistry registry) {
+	        registry.addMapping("/**")
+	                .allowedOrigins("*")
+	                .allowedMethods("GET", "POST", "PUT", "DELETE", "PATCH");
+	    }
 }
