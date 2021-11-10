@@ -83,7 +83,7 @@ public class Javaspringcognitostarter {
 
 
 	    @Bean
-	    public Docket csrAPI() {
+	    public Docket SwaggerAPI() {
 	        return new Docket(DocumentationType.SWAGGER_2)
 	                .groupName("CognitoStarter-API")
 	                .apiInfo(apiInfo())
