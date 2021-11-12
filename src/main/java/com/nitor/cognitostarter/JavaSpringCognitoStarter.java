@@ -45,12 +45,12 @@ import java.util.List;
 import static com.nimbusds.jose.JWSAlgorithm.RS256;
 @SpringBootApplication
 @EnableSwagger2
-public class Javaspringcognitostarter {
+public class JavaSpringCognitoStarter {
 	@Autowired
 	private JwtConfiguration jwtConfiguration;
 	
 	public static void main(String[] args) {
-		SpringApplication.run(Javaspringcognitostarter.class, args);
+		SpringApplication.run(JavaSpringCognitoStarter.class, args);
 	}
 
 	  @Bean
