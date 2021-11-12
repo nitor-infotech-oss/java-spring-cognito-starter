@@ -11,9 +11,9 @@ spring:
       
 
   datasource:
-    url: 
-    username: 
-    password: 
+    url: jdbc:postgresql://localhost:5432/base_db
+    username: postgres
+    password: postgres
 
   servlet:
     multipart:
